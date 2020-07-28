@@ -48,11 +48,12 @@ stage('Approval') {
         // }
      
      stage('Build images') {
-	  //    steps {
+	     steps {
 		script {
 			  cd app
 			  docker build -f "Dockerfile" -t 1995bhowmick/angular-online-bus-ticket-booking-system .
-		      }
+		 }
+     }
     }
      stage('Push Docker image') {
 	  steps{

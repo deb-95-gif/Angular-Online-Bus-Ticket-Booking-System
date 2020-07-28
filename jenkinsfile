@@ -18,10 +18,11 @@ agent any
         }
       }
     }
-     steps{
+    stage('Deploy Image') {
+      steps{
         script {
           docker.withRegistry( '', registryCredential ) {
-            dockerImage.push() {
+            dockerImage.push()
           }
         }
       }

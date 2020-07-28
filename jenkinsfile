@@ -18,19 +18,19 @@ node(){
         
     }
 
-    stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"
-    }
+  //  stage('Package Build') {
+   //     sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"
+//    }
     
-    stage('Artifacts Creation') {
-        fingerprint 'bundle.tar.gz'
-        archiveArtifacts 'bundle.tar.gz'
-        echo "Artifacts created"
-    }
+ //   stage('Artifacts Creation') {
+  //      fingerprint 'bundle.tar.gz'
+   //     archiveArtifacts 'bundle.tar.gz'
+   //     echo "Artifacts created"
+   // }
 
-    stage('Stash changes') {
-        stash allowEmpty: true, includes: 'bundle.tar.gz', name: 'buildArtifacts'
-    }
+  //  stage('Stash changes') {
+  //      stash allowEmpty: true, includes: 'bundle.tar.gz', name: 'buildArtifacts'
+  //  }
 
 stage('Approval') {
             // no agent, so executors are not used up when waiting for approvals
@@ -42,16 +42,35 @@ stage('Approval') {
              //   }
             }
         }
+        
        //  stage('Deploy'){
          //             sh 'pm2 restart all'
         // }
      }   
-node('awsnode') {
-    echo 'Unstash'
-    unstash 'buildArtifacts'
-    echo 'Artifacts copied'
+     stage('Build images') {
+	      steps {
+		bat '''
+			  cd sm-shop
+			  docker build -f "Dockerfile" -t debaduttapradhan1996/shopizer-app:latest .
+		  
+		'''
+	      }
+       }
+   
+     stage('Push Docker image') {
+	  steps{
+		    withDockerRegistry([ credentialsId: "Docker_Hub", url: "" ]){
+			
+			bat "docker push debaduttapradhan1996/shopizer-app:latest"   
+	  	   }
+	   }
+       } 
+// node('awsnode') {
+//    echo 'Unstash'
+//    unstash 'buildArtifacts'
+ //   echo 'Artifacts copied'
 
-    echo 'Copy'
-    sh "yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz"
-    echo 'Copy completed'
-}
+//    echo 'Copy'
+//    sh "yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz"
+ //   echo 'Copy completed'
+// }

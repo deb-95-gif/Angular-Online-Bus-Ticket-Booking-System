@@ -51,7 +51,7 @@ stage('Approval') {
 	      steps {
 		script {
 			  cd app
-			  docker build -f "Dockerfile" -t 1995bhowmick/Angular-Online-Bus-Ticket-Booking-System:latest .
+			  docker build -f "Dockerfile" -t 1995bhowmick/Angular-Online-Bus-Ticket-Booking-System
 		        }
 	      }
     }

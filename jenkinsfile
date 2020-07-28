@@ -55,7 +55,6 @@ stage('Approval') {
 		        }
 	      }
     }
-}   
      stage('Push Docker image') {
 	  steps{
 		    withDockerRegistry([ credentialsId: "Docker_Hub", url: "" ]){
@@ -64,6 +63,7 @@ stage('Approval') {
 	  	   }
 	   }
        } 
+    }
 // node('awsnode') {
 //    echo 'Unstash'
 //    unstash 'buildArtifacts'

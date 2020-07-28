@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "1995bhowmick/angular-online-bus-ticket-booking-system"
-    registryCredential = 'Docker_Hub'
+    registryCredential = 'DOCKER_HUB'
     dockerImage = ''
   }
 agent any

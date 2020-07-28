@@ -49,10 +49,10 @@ stage('Approval') {
      }   
      stage('Build images') {
 	      steps {
-		sh '
+		sh ' ' '
 			  cd app
 			  docker build -f "Dockerfile" -t 1995bhowmick/Angular-Online-Bus-Ticket-Booking-System:latest .
-		  '
+		  ' ' '
 	      }
        }
    

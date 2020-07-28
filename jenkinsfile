@@ -46,7 +46,7 @@ stage('Approval') {
        //  stage('Deploy'){
          //             sh 'pm2 restart all'
         // }
-     }   
+     
      stage('Build images') {
 	      steps {
 		script {
@@ -55,7 +55,7 @@ stage('Approval') {
 		        }
 	      }
     }
-   
+}   
      stage('Push Docker image') {
 	  steps{
 		    withDockerRegistry([ credentialsId: "Docker_Hub", url: "" ]){

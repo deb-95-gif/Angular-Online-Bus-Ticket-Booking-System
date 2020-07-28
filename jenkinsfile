@@ -3,20 +3,20 @@ node(){
         checkout scm
     }
         
-    stage('Install dependencies') {
-        nodejs('nodejs') {
-            sh 'npm install'
-            echo "Modules installed"
-        }
+   // stage('Install dependencies') {
+     //   nodejs('nodejs') {
+       //     sh 'npm install'
+        //    echo "Modules installed"
+      //  }
         
-    }
-    stage('Build') {
-        nodejs('nodejs') {
-            sh 'ng build --prod'
-            echo "Build completed"
-        }
+  //  }
+  //  stage('Build') {
+   //     nodejs('nodejs') {
+    //        sh 'ng build --prod'
+     //       echo "Build completed"
+     //   }
         
-    }
+  //  }
 
   //  stage('Package Build') {
    //     sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"

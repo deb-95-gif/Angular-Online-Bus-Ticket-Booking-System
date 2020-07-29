@@ -16,11 +16,13 @@ stage(' adding user') {
             }
          }
          stage('environment variables') {
-          environment {
+         steps {
+              environment {
               registry = "1995bhowmick/angular-online-bus-ticket-booking-system"
               registryCredential = 'DOCKER_HUB'
               dockerImage = ''
-                      }
+               }
+            }
       }
  
  stage('Building image') {

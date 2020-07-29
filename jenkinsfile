@@ -11,6 +11,15 @@ agent any
         checkout scm
    }
  }
+ stage(' adding user') {
+      steps {
+           script{
+              sudo groupadd docker
+              sudo usermod -aG docker $USER
+              sudo newgrp docker
+              }
+            }
+         }
  stage('Building image') {
       steps{
         script {
@@ -23,8 +32,8 @@ agent any
         script {
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
-          }
-        }
+              }
+           }
       }
     }
     stage('Remove Unused docker image') {

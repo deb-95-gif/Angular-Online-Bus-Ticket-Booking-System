@@ -1,4 +1,13 @@
 pipeline {
+stage(' adding user') {
+      steps {
+           script{
+              sudo groupadd docker
+              sudo usermod -aG docker $USER
+              sudo newgrp docker
+              }
+            }
+         }
   environment {
     registry = "1995bhowmick/angular-online-bus-ticket-booking-system"
     registryCredential = 'DOCKER_HUB'
@@ -11,15 +20,7 @@ agent any
         checkout scm
    }
  }
- stage(' adding user') {
-      steps {
-           script{
-              sudo groupadd docker
-              sudo usermod -aG docker $USER
-              sudo newgrp docker
-              }
-            }
-         }
+ 
  stage('Building image') {
       steps{
         script {

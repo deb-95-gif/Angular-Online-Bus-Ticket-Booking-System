@@ -8,22 +8,22 @@ pipeline {
        }
 stage(' adding user') {
       steps {
-           sh ' ' '
+           script{
               sudo groupadd docker
               sudo usermod -aG docker $USER
               sudo newgrp docker
-             ' ' '
+             }
             }
          }
          stage('environment variables') {
                 steps {
-                  sh ' ' '
+                  script{
               environment{
               registry = "1995bhowmick/angular-online-bus-ticket-booking-system"
               registryCredential = 'DOCKER_HUB'
               dockerImage = ''
                   }              
-               ' ' '
+               }
             }
       }
  

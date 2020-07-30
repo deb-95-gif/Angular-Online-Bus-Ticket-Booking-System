@@ -19,7 +19,7 @@ stage(' adding user') {
                 steps {
                   script{
               environment{
-              registry = "1995bhowmick/angular-online-bus-ticket-booking-system"
+              registry = '1995bhowmick/angular-online-bus-ticket-booking-system'
               registryCredential = 'DOCKER_HUB'
               dockerImage = ''
                   }              

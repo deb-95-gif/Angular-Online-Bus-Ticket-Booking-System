@@ -20,7 +20,7 @@ stage(' adding user') {
         stage('Build images') {
 	      steps {
 		
-     sh	"docker build -f "Dockerfile" -t 1995bhowmick/angular-online-bus-ticket-booking-system ."
+     sh	"docker build -f "Dockerfile" -t 1995bhowmick/angular-online-bus-ticket-booking-system:latest"
 		     
 	      }
        }

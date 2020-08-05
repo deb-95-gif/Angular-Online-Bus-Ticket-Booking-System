@@ -34,13 +34,13 @@ stage(' adding user') {
 	  	   }
 	   }
        } 
-       stage('Deploy On Aws'){
-	      /* 
+     /*  stage('Deploy On Aws'){
+	     
 	       environment{
 		       
 		        dockerRun = "docker run -p 8080:8080 -d --name my-app kammana/my-app:2.0.0"
 	       }
-		*/
+	
     steps{
 			sshagent(['dev-server']) {
 			sh "ssh -o StrictHostKeyChecking=no ec2-user@3.236.222.156 sudo dokcer run 1995bhowmick/angular-online-bus-ticket-booking-system:latest"
@@ -60,6 +60,6 @@ stage(' adding user') {
                 }
               }
           }
-      }   
+      }   */ 
     }
   }

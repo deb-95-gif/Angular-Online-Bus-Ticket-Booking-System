@@ -21,7 +21,7 @@ stage(' adding user') {
 	      steps {
 		script {
         cd app
-			  docker -t 1995bhowmick/angular-online-bus-ticket-booking-system .
+			  docker build -f "Dockerfile" -t 1995bhowmick/angular-online-bus-ticket-booking-system .
 		       }
 	      }
        }

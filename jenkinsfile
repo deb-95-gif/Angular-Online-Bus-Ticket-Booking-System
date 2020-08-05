@@ -41,10 +41,11 @@ tage("Install node modules") {
    
      stage('Push Docker image') {
 	  steps{
+       script{
 		    withDockerRegistry([ credentialsId: "Docker_Hub", url: "" ]){
-			
 			sh "docker push 1995bhowmick/ng7:latest"   
-	  	         }
+	  	          }
+             }
 	        }
        } 
     }

@@ -6,8 +6,8 @@ pipeline {
             checkout scm
             }
        }
-  /*
-tage("Install node modules") {
+ 
+stage("Install node modules") {
      steps {
 	     sh 'npm install'
          echo "modules installed"

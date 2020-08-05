@@ -9,18 +9,16 @@ pipeline {
   /*
 tage("Install node modules") {
      steps {
-	     powershell 'npm install'
+	     sh 'npm install'
          echo "modules installed"
-   }
+         }
    }
    stage("build") {
      steps {
-			powershell 'npm run ng -- build --prod'
+			sh 'npm run ng -- build --prod'
             echo "build successful"
+         }
    }
-   }
-
-
 
    stage('Approval') {
             // no agent, so executors are not used up when waiting for approvals
@@ -45,9 +43,9 @@ tage("Install node modules") {
 	  steps{
 		    withDockerRegistry([ credentialsId: "Docker_Hub", url: "" ]){
 			
-			bat "docker push 1995bhowmick/ng7:latest"   
-	  	   }
-	   }
+			sh "docker push 1995bhowmick/ng7:latest"   
+	  	         }
+	        }
        } 
-  }
+    }
 }

@@ -1,11 +1,13 @@
 
-# stage 1
-FROM node:latest as node
+# base image
+FROM node:12.18.3
+
+# set working directory
 WORKDIR /app
+
+# install and cache app dependencies
 COPY . .
 RUN npm install
 RUN npm run build --prod
 
-# stage 2
-FROM nginx:alpine
-COPY --from=node /app/dist/Angular-Online-Bus-Ticket-Booking-System /usr/share/nginx/html
+CMD ["npm", "start"]

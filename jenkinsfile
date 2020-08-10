@@ -7,13 +7,13 @@ pipeline {
     
   agent any 
   stages{
-   stage("Install node modules") {
+   stage('Install node modules') {
      nodejs('nodejs') {
 	    sh 'npm install'
        echo "modules installed"
           }
         }
-   stage("build") {
+   stage('build') {
    nodejs('nodejs') {
 			sh 'npm run ng -- build --prod'
       echo "build successful"

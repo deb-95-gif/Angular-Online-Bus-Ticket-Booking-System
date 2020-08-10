@@ -8,18 +8,21 @@ pipeline {
   agent any 
   stages{
    stage('Install node modules') {
+   steps {
      nodejs('nodejs') {
 	    sh 'npm install'
        echo "modules installed"
           }
         }
+      }
    stage('build') {
+   steps {
    nodejs('nodejs') {
 			sh 'npm run ng -- build --prod'
       echo "build successful"
          }
        } 
-   
+   }
     stage('Package Build') {
       sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"
       }

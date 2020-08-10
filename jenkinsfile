@@ -29,7 +29,7 @@ pipeline {
       sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"
       }
       
-    stage("Artifacts creation') {
+    stage('Artifacts creation') {
       fingerprint 'bundle.tar.gz'
       archiveArtifacts 'bundle.tar.gz'
       echo "Artifacts created"

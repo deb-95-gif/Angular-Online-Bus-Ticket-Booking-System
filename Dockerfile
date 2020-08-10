@@ -1,6 +1,6 @@
 
 # base image
-FROM node:12.18.3
+FROM node:12.18.3-stretch
 
 # set working directory
 WORKDIR /app
@@ -10,4 +10,8 @@ COPY . .
 RUN npm install
 RUN npm run build --prod
 
-CMD ["npm", "start"]
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD [ "node" ]
+// CMD ["npm", "start"]

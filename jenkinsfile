@@ -9,7 +9,7 @@ pipeline {
   stages{
    stage('Install node modules') {
    steps {
-     nodejs('nodejs') {
+    nodejs('nodejs') {
 	    sh 'npm install'
        echo "modules installed"
           }
@@ -17,10 +17,10 @@ pipeline {
       }
    stage('build') {
    steps {
-   nodejs('nodejs') {
+  nodejs('nodejs') {
 			sh 'npm run ng -- build --prod'
       echo "build successful"
-         }
+        }
        } 
    }
     stage('Package Build') {
@@ -28,10 +28,12 @@ pipeline {
       }
       
     stage('Artifacts creation') {
+    steps{
       fingerprint 'bundle.tar.gz'
       archiveArtifacts 'bundle.tar.gz'
       echo "Artifacts created"
       }
+     }
       
     stage ('BuildDocker Image') {
         steps{

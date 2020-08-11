@@ -30,7 +30,7 @@ pipeline {
       tar -xvzf Angular-Online-Bus-Ticket-Booking-System.tar.gz
       }
       
-    stage('Artifacts creation') {A
+    stage('Artifacts creation') {
     steps{
       echo "Artifacts created"
       fingerprint 'bundle.tar.gz'

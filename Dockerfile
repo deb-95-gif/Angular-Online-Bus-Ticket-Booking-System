@@ -1,14 +1,25 @@
-
-# base image
-FROM node:12.18.3-stretch
+ pull official base image
+FROM node:current
 
 # set working directory
-WORKDIR /app
+WORKDIR /
 
-# install and cache app dependencies
-COPY . .
-RUN npm install
-RUN npm run build --prod
 
-CMD ["npm", "start"]
+# add `/node_modules/.bin` to $PATH
+ENV PATH /node_modules/.bin:$PATH
+
+# install app dependencies
+COPY package.json ./
+
+RUN npm install 
+RUN npm install -y
+RUN npm install -g @angular/cli
+
+# add app
+COPY . ./
+
+
+# start app
+CMD ["ng","serve"]
+
 EXPOSE 4200

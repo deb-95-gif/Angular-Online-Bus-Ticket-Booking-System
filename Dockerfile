@@ -2,7 +2,7 @@
 FROM node:current
 
 # set working directory
-WORKDIR /
+WORKDIR /app
 
 
 # add `/node_modules/.bin` to $PATH

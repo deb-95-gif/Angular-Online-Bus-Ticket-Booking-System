@@ -24,7 +24,7 @@ pipeline {
        } 
    }
     stage('Package Build') {
-      sh "tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/"
+      sh 'tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/'
       }
       
     stage('Artifacts creation') {

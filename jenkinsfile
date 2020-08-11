@@ -11,7 +11,7 @@ pipeline {
    steps {
     nodejs('nodejs') {
 	    sh 'npm install'
-       echo "modules installed"
+      echo "modules installed"
           }
         }
       }
@@ -24,14 +24,16 @@ pipeline {
        } 
    }
     stage('Package Build') {
-      sh 'tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/'
+    steps{
+      echo "package creation"
+      tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/
       }
       
     stage('Artifacts creation') {
     steps{
+      echo "Artifacts created"
       fingerprint 'bundle.tar.gz'
       archiveArtifacts 'bundle.tar.gz'
-      echo "Artifacts created"
       }
      }
       

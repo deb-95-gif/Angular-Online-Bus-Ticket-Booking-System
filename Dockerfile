@@ -13,7 +13,7 @@ COPY package.json ./
 
 RUN npm install 
 RUN npm install -y
-RUN ng build --prod
+RUN nom run build --prod
 RUN npm install -g @angular/cli
 
 

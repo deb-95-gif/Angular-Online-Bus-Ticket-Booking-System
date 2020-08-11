@@ -26,10 +26,10 @@ pipeline {
     stage('Package Build') {
     steps{
       echo "package creation"
-      tar -zcvf dist/Angular-Online-Bus-Ticket-Booking-System/
+      tar -xvzf Angular-Online-Bus-Ticket-Booking-System.tar.gz
       }
       
-    stage('Artifacts creation') {
+    stage('Artifacts creation') {A
     steps{
       echo "Artifacts created"
       fingerprint 'bundle.tar.gz'

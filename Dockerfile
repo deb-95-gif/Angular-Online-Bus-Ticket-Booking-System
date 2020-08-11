@@ -1,4 +1,4 @@
- pull official base image
+# pull official base image
 FROM node:current
 
 # set working directory

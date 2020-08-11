@@ -13,7 +13,6 @@ COPY package.json ./
 
 RUN npm install 
 RUN npm install -y
-RUN npm run build --prod
 RUN npm install -g @angular/cli
 
 
@@ -21,7 +20,8 @@ RUN npm install -g @angular/cli
 COPY . ./
 
 
+EXPOSE 4200
+
 # start app
 CMD ["npm","start"]
 
-EXPOSE 4200

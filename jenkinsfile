@@ -17,12 +17,13 @@ pipeline {
       }
    stage('build') {
    steps {
-  nodejs('nodejs') {
+   nodejs('nodejs') {
 			sh 'npm run ng -- build --prod'
       echo "build successful"
         }
        } 
    }
+   /*
     stage('Package Build') {
     steps{
       echo "package creation"
@@ -37,7 +38,7 @@ pipeline {
       archiveArtifacts 'bundle.tar.gz'
       }
      }
-      
+  */    
     stage ('BuildDocker Image') {
         steps{
         echo "Building Docker Image"
@@ -58,7 +59,9 @@ pipeline {
           }
       }
     stage ('Deploy to Dev') {
+    steps{
         echo "Deploying to Dev Environment"
         }
+       }
       }
    }

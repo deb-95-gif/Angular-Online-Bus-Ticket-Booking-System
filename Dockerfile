@@ -10,8 +10,4 @@ COPY . .
 RUN npm install
 RUN npm run build --prod
 
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
-
-CMD [ "node" ]
 CMD ["npm", "start"]

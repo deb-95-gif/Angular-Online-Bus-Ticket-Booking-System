@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "creating AWS CloudFomation Stack"
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        sh 'aws cloudformation create-stack --stack-name petclinic --template-body file://aws-template-redbus.yaml --region us-east-1 --parameters  ParameterKey=SSHKey,ParameterValue=AWS-Ubuntu ParameterKey=ELBVPC,ParameterValue=vpc-8d44a0f0 ParameterKey=ELBSubnet,ParameterValue="subnet-4d05d36c\\,subnet-dad90d85"'
+        sh 'aws cloudformation create-stack --stack-name redbus --template-body file://aws-template-redbus.yaml --region us-east-1 --parameters  ParameterKey=SSHKey,ParameterValue=AWS-Ubuntu ParameterKey=ELBVPC,ParameterValue=vpc-8d44a0f0 ParameterKey=ELBSubnet,ParameterValue="subnet-4d05d36c\\,subnet-dad90d85"'
         }
       }
     }

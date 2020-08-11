@@ -7,7 +7,7 @@ pipeline {
                   echo "Deploying to Prod1"
                   sshagent(['ssh-key']) {
                       sh "ssh -o StrictHostKeyChecking=no ec2-user@52.207.238.77 docker rm -f angular-red-bus || true"
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.207.238.77 docker run -d --name=angular-red-bus -p 4200:4200 1995bhowmick/angular-red-bus"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.207.238.77 docker run -d --name=angular-red-bus -p 4201:4200 1995bhowmick/angular-red-bus"
                   }
                 }
       }
@@ -16,7 +16,7 @@ pipeline {
                   echo "Deploying to Prod2"
                   sshagent(['ssh-key']) {
                       sh "ssh -o StrictHostKeyChecking=no ec2-user@54.89.87.94 docker rm -f angular-red-bus || true"
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.89.87.94 docker run -d --name=angular-red-bus -p 4200:4200 1995bhowmick/angular-red-bus"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.89.87.94 docker run -d --name=angular-red-bus -p 4201:4200 1995bhowmick/angular-red-bus"
                   }
                 }
       }         

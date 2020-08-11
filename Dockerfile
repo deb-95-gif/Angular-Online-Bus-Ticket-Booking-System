@@ -14,12 +14,13 @@ COPY package.json ./
 RUN npm install 
 RUN npm install -y
 RUN npm install -g @angular/cli
+RUN npm run build --prod
 
 # add app
 COPY . ./
 
 
 # start app
-CMD ["ng","serve"]
+CMD ["npm","start"]
 
 EXPOSE 4200

@@ -62,7 +62,7 @@ pipeline {
     steps{
         echo "Deploying to Dev Environment"
         sh "docker rm -f angular-red-bus || true"
-        sh "docker run -d --name=angular-red-bus -p 8081:4200 1995bhowmick/angular-red-bus"
+        sh "docker run -d --name=angular-red-bus -p 4200:4200 1995bhowmick/angular-red-bus"
         }
        }
       }

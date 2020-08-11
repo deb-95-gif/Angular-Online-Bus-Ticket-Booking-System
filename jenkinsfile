@@ -29,7 +29,7 @@ pipeline {
       cd dist/
       tar -xvzf Angular-Online-Bus-Ticket-Booking-System.tar.gz
       }
-      
+    }  
     stage('Artifacts creation') {
     steps{
       echo "Artifacts created"

@@ -26,7 +26,7 @@ pipeline {
     stage('Package Build') {
     steps{
       echo "package creation"
-      tar -zcvf bundle.tar.gz dist/Angular-Online-Bus-Ticket-Booking-System/
+      tar -zcvf dist/Angular-Online-Bus-Ticket-Booking-System/
       }
       
     stage('Artifacts creation') {

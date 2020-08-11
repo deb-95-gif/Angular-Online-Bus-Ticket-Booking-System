@@ -26,6 +26,7 @@ pipeline {
     stage('Package Build') {
     steps{
       echo "package creation"
+      cd dist/
       tar -xvzf Angular-Online-Bus-Ticket-Booking-System.tar.gz
       }
       

@@ -13,8 +13,9 @@ COPY package.json ./
 
 RUN npm install 
 RUN npm install -y
-RUN npm install -g @angular/cli
 RUN ng build --prod
+RUN npm install -g @angular/cli
+
 
 # add app
 COPY . ./
